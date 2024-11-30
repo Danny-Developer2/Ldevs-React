@@ -1,0 +1,22 @@
+.container.marketing {
+    margin-top: 50px;
+  }
+  
+  .featurette-divider {
+    margin: 3rem 0;
+  }
+  
+  .featurette-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

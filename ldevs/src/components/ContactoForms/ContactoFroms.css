@@ -1,0 +1,103 @@
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: #f4f4f4;
+}
+
+.Foto-formulairo img {
+    margin-top: -100%;
+}
+
+.card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.blue-text {
+    color: #00bcd4;
+}
+
+.form-control-label {
+    margin-bottom: 0;
+}
+
+input, textarea, button {
+    padding: 8px 15px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 18px !important;
+    font-weight: 300;
+}
+
+input:focus, textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00bcd4;
+    outline-width: 0;
+    font-weight: 400;
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer;
+}
+
+.btn-block:hover {
+    color: #fff !important;
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+
+.Foto-formulario {
+    position: absolute;
+    left: -10%; /* Ajusta la posición horizontal de la imagen */
+    top: 0; /* Posiciona la imagen donde empieza el formulario */
+    transform: translateY(0%); /* Mantén la imagen alineada con el formulario */
+    width: 30%; /* Tamaño ajustable según el diseño */
+    max-width: 50%; /* Limita el tamaño máximo de la imagen */
+    z-index: -1; /* La imagen se coloca detrás del formulario */
+}
+
+/* Estilo para pantallas grandes (escritorios) */
+@media (min-width: 1200px) {
+    .Foto-formulario {
+        transform: translateY(140%);
+        left: -5%; /* Imagen en la parte superior izquierda */
+        top: 10%; /* Ajuste según el inicio del formulario */
+        width: 25%; /* Ajusta el tamaño de la imagen */
+    }
+}
+
+/* Estilo para pantallas de laptops (menores a 1200px pero mayores que 768px) */
+@media (min-width: 1500px) {
+    .Foto-formulario {
+        transform: translateY(100%);
+        left: -20%; /* Ajusta la imagen un poco a la izquierda */
+        top: 10%; /* Ajuste vertical */
+        width: 30%; /* Reduce el tamaño de la imagen */
+    }
+}
+
+/* Estilo para pantallas móviles (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .Foto-formulario {
+        display: none; /* Oculta la imagen en pantallas móviles */
+    }
+}
