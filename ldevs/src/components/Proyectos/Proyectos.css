@@ -64,3 +64,10 @@
   margin-bottom: 10px;
   align-self: flex-start;
 }
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .proyectos-col {
+    width: calc(100% - 20px); /* Hace que las tarjetas ocupen el 100% del ancho en pantallas pequeñas */
+  }
+}
