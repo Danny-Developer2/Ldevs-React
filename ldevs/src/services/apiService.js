@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Crear una instancia de axios para configuraciones globales
 const api = axios.create({
-  baseURL: 'portafolio-backend-nodejs-production.up.railway.app/api/',  // Base URL para todas las peticiones
+  baseURL: 'https://portafolio-backend-nodejs-production.up.railway.app/api/',  // Base URL para todas las peticiones
   headers: {
     'Content-Type': 'application/json',
   },

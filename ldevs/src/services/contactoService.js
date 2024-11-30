@@ -1,7 +1,7 @@
 // src/services/contactoService.js
 import axios from "axios";
 
-const API_URL = "portafolio-backend-nodejs-production.up.railway.app/api/emails"; // Cambia esto según tu endpoint
+const API_URL = "https://portafolio-backend-nodejs-production.up.railway.app/api/emails"; // Cambia esto según tu endpoint
 
 export const enviarCorreo = async (formData) => {
   try {
