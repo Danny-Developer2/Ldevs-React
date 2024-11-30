@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Definir la función para obtener los proyectos
 const getProyectos = async () => {
   try {
     const response = await axios.get('http://localhost:5258/proyectos');
@@ -10,4 +11,9 @@ const getProyectos = async () => {
   }
 };
 
-export default { getProyectos };
+// Asignar el objeto a una variable antes de exportarlo
+const proyectoService = {
+  getProyectos
+};
+
+export default proyectoService;

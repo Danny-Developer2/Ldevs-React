@@ -48,6 +48,7 @@ const ContactoForm = () => {
 
     try {
       const response = await enviarCorreo(formData); // Llama al servicio
+      console.log(response)
       alert("Correo enviado exitosamente!");
       setFormData({
         nombre: "",

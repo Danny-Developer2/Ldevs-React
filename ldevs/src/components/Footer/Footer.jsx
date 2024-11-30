@@ -10,7 +10,7 @@ const Footer = () => {
           <p>All rights reserved.</p>
         </div>
         <div className="col-md-6 text-md-end">
-          <p><a href="#" className="text-white text-decoration-none">Back to top</a></p>
+          <p><a href="/" className="text-white text-decoration-none">Back to top</a></p>
         </div>
       </div>
       
@@ -18,9 +18,9 @@ const Footer = () => {
       <div className="row">
         <div className="col-md-12 text-center text-md-start">
           <p>
-            <a href="#" className="text-white text-decoration-none">Privacy</a> · 
-            <a href="#" className="text-white text-decoration-none">Terms</a> ·
-            <a href="#" className="text-white text-decoration-none">Cookie Policy</a>
+            <a href="/" className="text-white text-decoration-none">Privacy</a> · 
+            <a href="/" className="text-white text-decoration-none">Terms</a> ·
+            <a href="/" className="text-white text-decoration-none">Cookie Policy</a>
           </p>
         </div>
       </div>
@@ -29,9 +29,9 @@ const Footer = () => {
       <div className="row">
         <div className="col-md-12 text-center">
           <p>
-            <a href="#" className="text-white me-3"><i className="bi bi-facebook"></i> Facebook</a>
-            <a href="#" className="text-white me-3"><i className="bi bi-twitter"></i> Twitter</a>
-            <a href="#" className="text-white me-3"><i className="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="/" className="text-white me-3"><i className="bi bi-facebook"></i> Facebook</a>
+            <a href="/" className="text-white me-3"><i className="bi bi-twitter"></i> Twitter</a>
+            <a href="/" className="text-white me-3"><i className="bi bi-linkedin"></i> LinkedIn</a>
           </p>
         </div>
       </div>

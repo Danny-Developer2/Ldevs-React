@@ -112,10 +112,10 @@ const LoginAdmin = () => {
       </div>
       <div className="login-admin-footer">
         <div>
-          Don't have an account? <a href="#">Sign Up</a>
+          Don't have an account? <a href="/">Sign Up</a>
         </div>
         <div>
-          <a href="#">Forgot your password?</a>
+          <a href="/">Forgot your password?</a>
         </div>
       </div>
     </div>
