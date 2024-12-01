@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { enviarCorreo } from "../../services/contactoService"; // Importa el servicio
 import "./ContactoFroms.css"; // Mantén los estilos personalizados
+import 'toastr/build/toastr.min.css'; // Asegúrate de importar los estilos
+import toastr from '../../toastr/toastrConfig';  // Asegúrate de que el archivo de configuración esté bien importado
 
 const ContactoForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +15,20 @@ const ContactoForm = () => {
     mensaje: "",
   });
 
+  const resetFormulario = () => {
+    setFormData({
+      nombre: "",
+      apellido: "",
+      emailAddress: "",
+      numeroTelefono: "",
+      subject: "",
+      mensaje: "",
+    });
+
+    // Notificación de Toastr al restablecer el formulario
+    toastr.success("El formulario ha sido restablecido", "Formulario Resetado");
+  };
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -21,13 +37,22 @@ const ContactoForm = () => {
     const newErrors = {};
 
     if (!formData.nombre.trim()) newErrors.nombre = "El nombre es obligatorio";
-    if (!formData.apellido.trim()) newErrors.apellido = "El apellido es obligatorio";
-    if (!formData.emailAddress.trim() || !/\S+@\S+\.\S+/.test(formData.emailAddress))
+    if (!formData.apellido.trim())
+      newErrors.apellido = "El apellido es obligatorio";
+    if (
+      !formData.emailAddress.trim() ||
+      !/\S+@\S+\.\S+/.test(formData.emailAddress)
+    )
       newErrors.emailAddress = "Correo inválido";
-    if (!formData.numeroTelefono.trim() || !/^\d{10}$/.test(formData.numeroTelefono))
+    if (
+      !formData.numeroTelefono.trim() ||
+      !/^\d{10}$/.test(formData.numeroTelefono)
+    )
       newErrors.numeroTelefono = "Número de teléfono inválido";
-    if (!formData.subject.trim()) newErrors.subject = "El asunto es obligatorio";
-    if (!formData.mensaje.trim()) newErrors.mensaje = "El mensaje es obligatorio";
+    if (!formData.subject.trim())
+      newErrors.subject = "El asunto es obligatorio";
+    if (!formData.mensaje.trim())
+      newErrors.mensaje = "El mensaje es obligatorio";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -48,8 +73,8 @@ const ContactoForm = () => {
 
     try {
       const response = await enviarCorreo(formData); // Llama al servicio
-      console.log(response)
-      alert("Correo enviado exitosamente!");
+      console.log(response);
+      toastr.success("Mensaje Enviado con exito", "Con exito");
       setFormData({
         nombre: "",
         apellido: "",
@@ -59,7 +84,7 @@ const ContactoForm = () => {
         mensaje: "",
       });
     } catch (error) {
-      alert("Hubo un error al enviar el correo.");
+      toastr.error("No se puede enviar el mensaje", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -78,13 +103,12 @@ const ContactoForm = () => {
       </div>
       <div className="row d-flex justify-content-center">
         <div className="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-          <h3>Request a Demo</h3>
           <p className="blue-text">
-            Just answer a few questions <br /> so that we can personalize the
-            right experience for you.
+            Ldevs <br /> A tus ordenes
+            Gracias por Confiar en nosotros
           </p>
           <div className="card">
-            <h5 className="text-center mb-4">Powering world-class companies</h5>
+            <h5 className="text-center mb-4">Contactame</h5>
             <form onSubmit={handleSubmit}>
               <div className="row justify-content-between text-left">
                 <div className="form-group col-sm-6 flex-column d-flex">
@@ -124,7 +148,10 @@ const ContactoForm = () => {
               </div>
               <div className="row justify-content-between text-left">
                 <div className="form-group col-sm-6 flex-column d-flex">
-                  <label className="form-control-label px-3" htmlFor="emailAddress">
+                  <label
+                    className="form-control-label px-3"
+                    htmlFor="emailAddress"
+                  >
                     Email <span className="text-danger">*</span>
                   </label>
                   <input
@@ -141,7 +168,10 @@ const ContactoForm = () => {
                   )}
                 </div>
                 <div className="form-group col-sm-6 flex-column d-flex">
-                  <label className="form-control-label px-3" htmlFor="numeroTelefono">
+                  <label
+                    className="form-control-label px-3"
+                    htmlFor="numeroTelefono"
+                  >
                     Número Teléfono <span className="text-danger">*</span>
                   </label>
                   <input
@@ -154,7 +184,9 @@ const ContactoForm = () => {
                     onChange={handleChange}
                   />
                   {errors.numeroTelefono && (
-                    <small className="text-danger">{errors.numeroTelefono}</small>
+                    <small className="text-danger">
+                      {errors.numeroTelefono}
+                    </small>
                   )}
                 </div>
               </div>
@@ -203,21 +235,12 @@ const ContactoForm = () => {
                     className="btn btn-primary btn-block"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Enviando..." : "Request a demo"}
+                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                   </button>
                   <button
                     type="button"
                     className="btn btn-danger btn-block"
-                    onClick={() =>
-                      setFormData({
-                        nombre: "",
-                        apellido: "",
-                        emailAddress: "",
-                        numeroTelefono: "",
-                        subject: "",
-                        mensaje: "",
-                      })
-                    }
+                    onClick={resetFormulario}
                   >
                     Reset Formulario
                   </button>

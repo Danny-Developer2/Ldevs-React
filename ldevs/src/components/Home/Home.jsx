@@ -1,81 +1,128 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Carousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const images = [
-    "https://digitalnestweb.com/wp-content/uploads/2022/10/Desarrollo-Web-FrontEnd.png",
-    "https://bambu-mobile.com/wp-content/uploads/2024/08/Diferencia-entre-desarrollo-front-end-y-back-end.jpg",
-    "https://www.starkcloud.com/hubfs/Imported_Blog_Media/Que-es-Ciberseguridad.webp"
-  ];
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
+const BackgroundWithOverlay = () => {
+  const backgroundImage = "https://impactolatino.com/wp-content/uploads/2023/04/Este-articulo-fue-totalment-escrito-por-inteligencia-artificial.jpg";
+  const overlayImage = "https://i.pinimg.com/originals/04/8f/24/048f2432a46f50d0053ced22c5934aa9.png";
+  const rotatingImage = "https://static.vecteezy.com/system/resources/previews/022/841/109/non_2x/chatgpt-logo-transparent-background-free-png.png";
 
   return (
-    <div id="myCarousel" className="carousel slide mb-6 w-100" data-bs-ride="carousel">
-      {/* Indicadores */}
-      <div className="carousel-indicators">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to={index}
-            className={activeIndex === index ? "active" : ""}
-            aria-label={`Slide ${index + 1}`}
-          />
-        ))}
+    <div
+      className="position-relative text-center text-white d-flex justify-content-center align-items-center"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backgroundBlendMode: 'darken',
+        height: '100vh',
+        width: '100vw',
+      }}
+    >
+      {/* Contenedor del texto centrado */}
+      <div className="position-relative contenedor-texto" style={{ marginTop: '-30%' }}>
+        {/* Texto de bienvenida */}
+        <h1 className="display-1">Bienvenido a LDevs</h1>
+        <p className="lead" style={{ fontStyle: 'oblique' }}>
+          Transformando ideas en soluciones digitales.
+        </p>
+        <p>Tu idea, nuestra misión.</p>
       </div>
 
-      {/* Carrusel */}
-      <div className="carousel-inner">
-  {images.map((image, index) => (
-    <div className={`carousel-item ${activeIndex === index ? "active" : ""}`} key={index}>
+      {/* Imagen sobrepuesta solo para pantallas grandes */}
       <img
-        src={image}
-        alt={`Slide ${index + 1}`}
-        className="d-block vh-100" // Asegura que la imagen ocupe el 100% del ancho
-        style={{ 
-          objectFit: 'cover',  // Asegura que la imagen cubra el área sin distorsión
-          height: 'auto',      // Mantiene la altura proporcional al ancho
-          width: '100%',    // Mantiene la anchura proporcional al alto
+        src={overlayImage}
+        alt="Overlay Robot"
+        className="position-absolute overlay-image"
+        style={{
+          bottom: '-10%',
+          left: '0',
+          maxWidth: '40%',
+          height: 'auto',
         }}
       />
-    </div>
-  ))}
-</div>
 
+      {/* Imagen rotatoria */}
+      <img
+        src={rotatingImage}
+        alt="ChatGPT Logo"
+        className="position-absolute"
+        style={{
+          bottom: '16%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          maxWidth: '20%',
+          animation: 'rotate 5s infinite linear',
+        }}
+      />
 
-      {/* Controles */}
-      <button
-        className="carousel-control-prev"
-        type="button"
-        onClick={handlePrev}
-        data-bs-target="#myCarousel"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        onClick={handleNext}
-        data-bs-target="#myCarousel"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
+     
+
+      {/* Estilo para la animación */}
+      <style>
+        {`
+          @keyframes rotate {
+            0% {
+              transform: translateX(-50%) rotate(0deg);
+            }
+            100% {
+              transform: translateX(-50%) rotate(360deg);
+            }
+          }
+
+          /* Media query para dispositivos móviles */
+          @media (max-width: 768px) {
+            h1 {
+              font-size: 2rem;
+            }
+
+            p {
+              font-size: 1.2rem;
+            }
+
+            .rotating-image {
+              max-width: 40%;
+              bottom: 20%;
+            }
+
+            /* Ocultar imagen de robot en pantallas pequeñas */
+            .overlay-image {
+              display: none;
+            }
+
+            /* Ocultar imagen al lado del texto en pantallas pequeñas */
+            .side-image {
+              display: none;
+            }
+          }
+
+          /* Media query para pantallas muy pequeñas (375x667 o menos) */
+          @media (max-width: 375px) {
+            h1 {
+              font-size: 1.3rem;  /* Texto más pequeño */
+            }
+
+            p {
+              font-size: 1rem;    /* Texto más pequeño */
+            }
+
+            .rotating-image {
+              max-width: 50%;
+              bottom: 25%;
+            }
+
+            .overlay-image {
+              display: none;
+            }
+
+            .side-image {
+              display: none;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
 
-export default Carousel;
+export default BackgroundWithOverlay;
