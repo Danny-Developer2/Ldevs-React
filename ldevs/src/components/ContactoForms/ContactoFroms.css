@@ -95,6 +95,15 @@ button:focus {
     }
 }
 
+@media (max-width: 820px) {
+    .Foto-formulario {
+        transform: translateY(250%);
+        left: -20%; /* Ajusta la imagen un poco a la izquierda */
+        top: 10%; /* Ajuste vertical */
+        width: 30%; /* Reduce el tamaño de la imagen */
+    }
+}
+
 /* Estilo para pantallas móviles (pantallas menores a 768px) */
 @media (max-width: 768px) {
     .Foto-formulario {
