@@ -167,6 +167,34 @@
     }
     
   }
+  @media (max-width: 390px) {
+    h1 {
+      font-size: 1.3rem; /* Texto más pequeño */
+    }
+  
+    p {
+      font-size: 1rem; /* Texto más pequeño */
+    }
+  
+    .rotating-image {
+      display: absolute;
+      max-width: 50%;
+      bottom: 25%;
+      top: 70%;
+    }
+  
+    .overlay-image {
+      display: none;
+    }
+  
+    .side-image {
+      display: none;
+    }
+    .skills-container{
+        display: none;
+    }
+    
+  }
 
 /* Contenedor principal */
 .skills-container {
