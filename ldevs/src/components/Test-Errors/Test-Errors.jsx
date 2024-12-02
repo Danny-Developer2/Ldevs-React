@@ -9,16 +9,22 @@ const ErrorComponent = () => {
   const handleError = async (errorCode) => {
     try {
       const response = await axios.get(`https://portafolio-backend-nodejs-production.up.railway.app/api/buggy/${errorCode}`);
-      console.log(response);
     } catch (error) {
       setErrorMessage(`Error ${errorCode}: ${error.message}`);
-      console.log(error);
+    
 
       // Redirigir a la ruta correspondiente en función del error
       if (errorCode === "not-found") {
         navigate("/404"); // Redirigir a /404
       } else if (errorCode === "server-error") {
-        navigate("/500"); // Redirigir a /500
+        navigate("/500", {
+          state: {
+            errorDetails: {
+              message: error.response.data.message || "No se proporcionó un mensaje de error.",
+              stack: error.response.data.stack || "Sin detalles del stack.",
+            },
+          },
+        });
       }
     }
   };

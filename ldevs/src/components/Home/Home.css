@@ -149,9 +149,10 @@
     }
   
     .rotating-image {
+      display: absolute;
       max-width: 50%;
       bottom: 25%;
-      top: 60%;
+      top: 70%;
     }
   
     .overlay-image {
@@ -164,6 +165,7 @@
     .skills-container{
         display: none;
     }
+    
   }
 
 /* Contenedor principal */
@@ -238,6 +240,53 @@
   
     .skill-name {
       font-size: 0.9rem;
+    }
+  }
+  .contenedor-texto-moderno {
+    display: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Centrado vertical */
+    color: #ffffff;
+    top: 40%;
+    text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  }
+  
+  .titulo-neon {
+    font-size: 3rem; /* Tamaño grande */
+    color: #00f3ff; /* Neón */
+    text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff,
+      0 0 40px #00f3ff, 0 0 50px #00f3ff;
+    animation: neon-flicker 1.5s infinite alternate;
+    font-family: 'Doto', sans-serif;
+
+  }
+  
+  .subtitulo-neon {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #00e1a4;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 0 0 10px #00e1a4, 0 0 20px #00e1a4, 0 0 30px #00e1a4;
+  }
+  
+  .texto-simple {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #cccccc;
+    margin-top: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+  @keyframes neon-flicker {
+    0% {
+      text-shadow: 0 0 5px #00f3ff, 0 0 10px #00f3ff, 0 0 20px #00f3ff,
+        0 0 30px #00f3ff, 0 0 40px #00f3ff;
+    }
+    100% {
+      text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff,
+        0 0 50px #00f3ff, 0 0 60px #00f3ff;
     }
   }
   

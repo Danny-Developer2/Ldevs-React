@@ -16,7 +16,6 @@ const Navbar = () => {
   const updateAuthStatus = () => {
     const isAuth = AuthService.isAuthenticated();
     const userRole = AuthService.getUserRole();
-    console.log(isAuth, userRole);
     setIsAuthenticated(isAuth);
     setRole(userRole);
   };

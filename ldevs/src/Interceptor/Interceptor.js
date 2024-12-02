@@ -35,11 +35,17 @@ axiosInstance.interceptors.response.use(
           // Redirigir a una página de "Página no encontrada"
           navigate("/404"); // Asegúrate de tener una ruta /not-found
           break;
-        case 500:
-          console.error("Error en el servidor (500)", error.response.data);
-          // Redirigir a una página de error con el mensaje del servidor
-          navigate("/500", { state: { errorMessage: error.response.data } });
-          break;
+          case 500:
+            navigate("/500", {
+              state: {
+                errorDetails: {
+                  message: error.response.data.message || "No se proporcionó un mensaje de error.",
+                  stack: error.response.data.stack || "Sin detalles del stack.",
+                },
+              },
+            });
+            break;
+          
         default:
           console.error("Error desconocido");
           break;
