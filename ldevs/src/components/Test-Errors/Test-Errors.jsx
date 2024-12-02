@@ -9,6 +9,7 @@ const ErrorComponent = () => {
   const handleError = async (errorCode) => {
     try {
       const response = await axios.get(`https://portafolio-backend-nodejs-production.up.railway.app/api/buggy/${errorCode}`);
+      console.log(response)
     } catch (error) {
       setErrorMessage(`Error ${errorCode}: ${error.message}`);
     
