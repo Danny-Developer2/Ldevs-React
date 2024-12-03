@@ -1,0 +1,79 @@
+.container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin-top: 0.5rem;
+    color: #555;
+  }
+  
+  .selectWrapper {
+    margin-top: 1rem;
+  }
+  
+  .select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .tabs {
+    margin-top: 2rem;
+  }
+  
+  .tabList {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .tabTrigger {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  .tabTrigger:hover,
+  .activeTab {
+    border-color: #0070f3;
+    font-weight: bold;
+  }
+  
+  .tabContent {
+    margin-top: 1rem;
+  }
+  
+  .skillsTab img {
+    margin: 0.5rem;
+    max-height: 50px;
+  }
+  
+  .buttonGroup {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .secondaryButton {
+    background: #0070f3;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .secondaryButton:hover {
+    background: #005bb5;
+  }
+  
+ 
